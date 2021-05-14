@@ -1,39 +1,20 @@
+import 'package:e_commerce/pictionary.dart';
+import 'package:e_commerce/wordgame.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GridDashBoard extends StatelessWidget {
-  Items item1 = new Items(
-      title: "Calendar",
-      subtitle: "March, Wednesday",
-      event: "3 Events",
-      img: "assets/image1.png");
+  Items item1 = new Items(title: "Pictionary", img: "assets/image1.png");
 
-  Items item2 = new Items(
-      title: "Groceries",
-      subtitle: "Brocolli, Apple",
-      event: "4 Items",
-      img: "assets/image2.png");
+  Items item2 = new Items(title: "WordMatch", img: "assets/image2.png");
 
-  Items item3 = new Items(
-      title: "Locations",
-      subtitle: "Here, There",
-      event: "",
-      img: "assets/image3.png");
+  Items item3 = new Items(title: "Development", img: "assets/image3.png");
 
-  Items item4 = new Items(
-      title: "Wat", subtitle: "", event: "3 Events", img: "assets/image4.png");
+  Items item4 = new Items(title: "Development", img: "assets/image4.png");
 
-  Items item5 = new Items(
-      title: "Calendar",
-      subtitle: "March, Wednesday",
-      event: "3 Events",
-      img: "assets/image1.png");
+  Items item5 = new Items(title: "Development", img: "assets/image1.png");
 
-  Items item6 = new Items(
-      title: "Groceries",
-      subtitle: "Brocolli, Apple",
-      event: "4 Items",
-      img: "assets/image2.png");
+  Items item6 = new Items(title: "Groceries", img: "assets/image2.png");
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +30,14 @@ class GridDashBoard extends StatelessWidget {
           children: myList.map((data) {
             return InkWell(
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('Tap'),
-                  ));
+                  if (data.title == "Pictionary") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Pictionary()));
+                  } 
+                  else if(data.title == "WordMatch"){
+                       Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => WordGame()))
+                  }
                 },
                 /*
               decoration: BoxDecoration(
@@ -108,8 +94,6 @@ class GridDashBoard extends StatelessWidget {
 
 class Items {
   String title;
-  String subtitle;
-  String event;
   String img;
-  Items({this.title, this.subtitle, this.event, this.img});
+  Items({this.title, this.img});
 }
