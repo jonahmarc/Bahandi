@@ -30,6 +30,15 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  # to handle SVGs for Android, iOS, and Web
+  websafe_svg: ^1.1.4
+
+  # state management, intelligent dependency injection, and route management
+  get: ^4.1.4
+
+
+  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -42,6 +51,10 @@ flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
+  fonts:
+    - family: League
+      fonts:
+        - asset: assets/fonts/league_spartan_bold.ttf
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
@@ -49,11 +62,15 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
+    - assets/
+    - assets/cebuano_pictures/
     - assets/image1.png
     - assets/image2.png
     - assets/image3.png
     - assets/image4.png
     - assets/shopping_bag.png
+    - assets/bg_quizLevel.svg
+    - assets/background_quiz.png
     - assets/pictionary.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
