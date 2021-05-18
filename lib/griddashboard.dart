@@ -1,9 +1,15 @@
 import 'package:e_commerce/pictionary.dart';
-import 'package:e_commerce/wordgame.dart';
+import 'package:e_commerce/screens/quizLevelView.dart';
+// import 'package:e_commerce/wordgame.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+//import 'package:google_fonts/google_fonts.dart';
 
-class GridDashBoard extends StatelessWidget {
+class GridDashBoard extends StatefulWidget {
+  @override
+  _GridDashBoardState createState() => _GridDashBoardState();
+}
+
+class _GridDashBoardState extends State<GridDashBoard> {
   Items item1 = new Items(title: "Pictionary", img: "assets/image1.png");
 
   Items item2 = new Items(title: "WordMatch", img: "assets/image2.png");
@@ -19,7 +25,7 @@ class GridDashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Items> myList = [item1, item2, item3, item4, item5, item6];
-    var color = 0xffFFFFFF;
+    //var color = 0xffFFFFFF;
     return Flexible(
       child: GridView.count(
           childAspectRatio: 1.0,
@@ -36,7 +42,8 @@ class GridDashBoard extends StatelessWidget {
                   } 
                   else if(data.title == "WordMatch"){
                        Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => WordGame()))
+                      // MaterialPageRoute(builder: (context) => WordGame()));
+                      MaterialPageRoute(builder: (context) => QuizLevelView()));
                   }
                 },
                 /*
