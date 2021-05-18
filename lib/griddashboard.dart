@@ -42,16 +42,11 @@ class _GridDashBoardState extends State<GridDashBoard> {
                         MaterialPageRoute(
                             builder: (context) => PictionaryState()));
                   } else if (data.title == "WordMatch") {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Pictionary()));
-                  } 
-                  else if(data.title == "WordMatch"){
-                       Navigator.push(context,
-                      // MaterialPageRoute(builder: (context) => WordGame()));
-                      MaterialPageRoute(builder: (context) => QuizLevelView()));
-
-                        MaterialPageRoute(builder: (context) => WordGame()));
-
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => QuizLevelView()));
+                    // MaterialPageRoute(builder: (context) => WordGame()));
                   }
                 },
                 /*

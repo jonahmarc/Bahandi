@@ -11,7 +11,7 @@ class Note {
     word = json["word"];
     eng = json["eng"];
     img = json["img"];
-    typ_spch = json["tpy_soch"];
+    typ_spch = json["typ_spch"];
     def = json["def"];
   }
 }

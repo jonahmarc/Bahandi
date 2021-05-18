@@ -25,6 +25,7 @@ class Pictionary extends State<PictionaryState> {
     }
     return note;
   }
+
   @override
   Widget build(BuildContext context) {
     fetchNotes().then((value) {
@@ -42,17 +43,53 @@ class Pictionary extends State<PictionaryState> {
               child: Padding(
                 padding: const EdgeInsets.only(
                     top: 32, bottom: 32, left: 16.0, right: 16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      notes[index].word,
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                            child: new Image.asset(
+                          //"assets/image4.png",
+                          "assets/cebuano_pictures/" +
+                              notes[index].img, //+ notes[index].img,
+                          height: 60,
+                          fit: BoxFit.cover,
+                          alignment: Alignment.centerLeft,
+                        )),
+                      ],
                     ),
-                    Text(
-                      notes[index].def,
-                      style: TextStyle(color: Colors.grey.shade600),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 10,
+                          width: 10,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          notes[index].word,
+                          style: TextStyle(
+                              fontSize: 22, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          notes[index].typ_spch,
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontStyle: FontStyle.italic,
+                              color: Colors.grey.shade600),
+                        ),
+                        Text(
+                          notes[index].def,
+                          style: TextStyle(
+                            color: Colors.grey.shade600,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
