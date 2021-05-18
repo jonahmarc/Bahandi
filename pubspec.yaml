@@ -21,9 +21,10 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  google_fonts: ^0.2.0
   flutter:
     sdk: flutter
+  http: "^0.12.0+3"
+  google_fonts: "^0.2.0"
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -70,6 +71,7 @@ flutter:
     - assets/shopping_bag.png
     - assets/bg_quizLevel.svg
     - assets/background_quiz.png
+    - assets/pictionary.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

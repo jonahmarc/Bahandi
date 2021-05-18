@@ -37,6 +37,11 @@ class _GridDashBoardState extends State<GridDashBoard> {
             return InkWell(
                 onTap: () {
                   if (data.title == "Pictionary") {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PictionaryState()));
+                  } else if (data.title == "WordMatch") {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Pictionary()));
                   } 
@@ -44,6 +49,9 @@ class _GridDashBoardState extends State<GridDashBoard> {
                        Navigator.push(context,
                       // MaterialPageRoute(builder: (context) => WordGame()));
                       MaterialPageRoute(builder: (context) => QuizLevelView()));
+
+                        MaterialPageRoute(builder: (context) => WordGame()));
+
                   }
                 },
                 /*
