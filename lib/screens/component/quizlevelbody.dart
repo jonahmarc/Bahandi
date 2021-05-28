@@ -1,5 +1,8 @@
 import 'package:e_commerce/pictionary.dart';
-import 'package:e_commerce/screens/kinderQuiz.dart';
+import 'package:e_commerce/screens/component/gradeThreeLevel/gradeThreeQuiz.dart';
+import 'package:e_commerce/screens/component/gradeTwoLevel/gradeTwoQuiz.dart';
+import 'package:e_commerce/screens/component/gradeOneLevel/gradeOneQuiz.dart';
+import 'package:e_commerce/screens/component/kinderLevel/kinderQuiz.dart';
 import 'package:flutter/material.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
@@ -64,7 +67,7 @@ class QuizLevelBody extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PictionaryState()));
+                                  builder: (context) => GradeOneQuiz()));
                         },
                         child: Container(
                           child: Image.asset('assets/2.png'),
@@ -90,7 +93,7 @@ class QuizLevelBody extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PictionaryState()));
+                                  builder: (context) => GradeTwoQuiz()));
                         },
                         child: Container(
                           child: Image.asset('assets/3.png'),
@@ -104,7 +107,7 @@ class QuizLevelBody extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PictionaryState()));
+                                  builder: (context) => GradeThreeQuiz()));
                         },
                         child: Container(
                           child: Image.asset('assets/4.png'),
