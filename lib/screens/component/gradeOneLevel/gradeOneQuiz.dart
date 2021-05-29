@@ -6,15 +6,13 @@ import 'package:get/get.dart';
 class GradeOneQuiz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    OneQuestionController _controller = Get.put(OneQuestionController());
+    //AllQuestionController _controller = Get.put(AllQuestionController());
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text("Quiz - Grade One Level"),
         backgroundColor: Colors.green,
-        actions: [
-          TextButton(onPressed: _controller.nextQuest, child: Text("Skip"))
-        ],
+        actions: [TextButton(onPressed: () {}, child: Text("Skip"))],
       ),
       body: GradeOneQuizBody(),
     );

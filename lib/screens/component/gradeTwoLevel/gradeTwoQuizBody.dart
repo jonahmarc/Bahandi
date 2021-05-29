@@ -3,6 +3,7 @@ import 'gradeTwoQuestionController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:websafe_svg/websafe_svg.dart';
+import 'gradeTwoQuestions.dart';
 import 'gradeTwoQuestionCard.dart';
 
 class GradeTwoQuizBody extends StatelessWidget {
@@ -36,7 +37,7 @@ class GradeTwoQuizBody extends StatelessWidget {
               Expanded(
                   child: PageView.builder(
                       physics: NeverScrollableScrollPhysics(),
-                      controller: questController.pageController,
+                      controller: questController.pageOneController,
                       itemCount: questController.questions.length,
                       itemBuilder: (context, index) => QuestionCard(
                             question: questController.questions[index],

@@ -1,34 +1,72 @@
 import 'package:flutter/material.dart';
-import 'screens/component/kinderLevel/kinderScoreScreen.dart';
-import 'screens/component/gradeOneLevel/oneScoreScreen.dart';
-import 'screens/component/gradeTwoLevel/twoScoreScreen.dart';
-import 'screens/component/gradeThreeLevel/threeScoreScreen.dart';
-import 'package:get/get.dart';
-import 'home.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'griddashboard.dart';
 
 void main() {
-  runApp(Bahandi());
+  runApp(MaterialApp(home: Home()));
 }
 
-/*class Home extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
   HomeState createState() => new HomeState();
-}*/
+}
 
-class Bahandi extends StatelessWidget {
+class HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Bahandi',
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => MyHomePage(),
-        '/kinderScoreScreen': (context) => KinderScoreScreen(),
-        '/oneScoreScreen': (context) => OneScoreScreen(),
-        '/twoScoreScreen': (context) => TwoScoreScreen(),
-        '/threeScoreScreen': (context) => ThreeScoreScreen(),
-      },
+    return Scaffold(
+      backgroundColor: Color(0xffFFFFFF),
+      body: Column(
+        children: <Widget>[
+          SizedBox(
+            height: 60,
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 16, right: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Bahandi",
+                      style: GoogleFonts.montserrat(
+                          textStyle: TextStyle(
+                              color: Color(0xff000000),
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Text(
+                      "Learn Bich",
+                      style: GoogleFonts.montserrat(
+                          textStyle: TextStyle(
+                              color: Color(0xff000000),
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                  ],
+                ),
+                IconButton(
+                  alignment: Alignment.topCenter,
+                  icon: Image.asset(
+                    "assets/shopping_bag.png",
+                    width: 24,
+                  ),
+                  onPressed: () {}, //para sa shopping bag
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          GridDashBoard()
+        ],
+      ),
     ); //Scaffold
   }
 }

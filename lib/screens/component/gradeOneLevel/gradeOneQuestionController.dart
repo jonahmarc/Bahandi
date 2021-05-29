@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-import 'oneScoreScreen.dart';
+//import 'kinderScoreScreen.dart';
 
 class OneQuestionController extends GetxController
     with SingleGetTickerProviderMixin {
-  AnimationController animController;
-  Animation anim;
+  AnimationController animOneController;
+  Animation animOne;
 
-  Animation get animation => this.anim;
+  Animation get animation => this.animOne;
 
-  PageController pageController;
-  PageController get _pageController => this.pageController;
+  PageController pageOneController;
+  PageController get _pageOneController => this.pageOneController;
 
   List<Question> quest = sample_data
       .map((question) => Question(
@@ -36,9 +36,6 @@ class OneQuestionController extends GetxController
   int selectedAnswer;
   int get _selectedAnswer => this.selectedAnswer;
 
-  int counter = 0;
-  int get _counter => this.counter;
-
   RxInt questionNum = 1.obs;
   RxInt get _questionNum => this.questionNum;
 
@@ -47,16 +44,16 @@ class OneQuestionController extends GetxController
 
   @override
   void onInit() {
-    animController =
+    animOneController =
         AnimationController(duration: Duration(seconds: 30), vsync: this);
-    anim = Tween<double>(begin: 1, end: 0).animate(animController)
+    animOne = Tween<double>(begin: 1, end: 0).animate(animOneController)
       ..addListener(() {
         update();
       });
 
-    animController.forward().whenComplete(nextQuest);
+    animOneController.forward().whenComplete(nextQuest);
 
-    pageController = PageController();
+    pageOneController = PageController();
     super.onInit();
   }
 
@@ -68,7 +65,7 @@ class OneQuestionController extends GetxController
     if (correctAnswer == selectedAnswer) {
       numOfCorrect++;
     }
-    animController.stop();
+    animOneController.stop();
     update();
 
     Future.delayed(Duration(seconds: 2), () {
@@ -79,21 +76,19 @@ class OneQuestionController extends GetxController
   @override
   void onClose() {
     super.onClose();
-    animController.dispose();
-    pageController.dispose();
+    animOneController.dispose();
+    pageOneController.dispose();
   }
 
   void nextQuest() {
-    counter++;
-    print(numOfCorrect);
-    if (counter != 10) {
+    if (questionNum.value != questions.length) {
       isAnswered = false;
-      pageController.nextPage(
+      pageOneController.nextPage(
           duration: Duration(milliseconds: 350), curve: Curves.ease);
-      animController.reset();
-      animController.forward().whenComplete(nextQuest);
+      animOneController.reset();
+      animOneController.forward().whenComplete(nextQuest);
     } else {
-      Get.toNamed('/oneScoreScreen');
+      //Get.to(ScoreScreen());
     }
   }
 }

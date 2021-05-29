@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'kinderQuestionController.dart';
 
-class KinderScoreScreen extends StatelessWidget {
+class ScoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AllQuestionController _qnController = Get.put(AllQuestionController());
