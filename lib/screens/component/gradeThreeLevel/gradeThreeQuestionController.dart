@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-//import 'kinderScoreScreen.dart';
+import 'threeScoreScreen.dart';
 
 class ThreeQuestionController extends GetxController
     with SingleGetTickerProviderMixin {
-  AnimationController animOneController;
-  Animation animOne;
+  AnimationController animController;
+  Animation anim;
 
-  Animation get animation => this.animOne;
+  Animation get animation => this.anim;
 
-  PageController pageOneController;
-  PageController get _pageOneController => this.pageOneController;
+  PageController pageController;
+  PageController get _pageController => this.pageController;
 
   List<Question> quest = sample_data
       .map((question) => Question(
@@ -36,6 +36,9 @@ class ThreeQuestionController extends GetxController
   int selectedAnswer;
   int get _selectedAnswer => this.selectedAnswer;
 
+  int counter = 0;
+  int get _counter => this.counter;
+
   RxInt questionNum = 1.obs;
   RxInt get _questionNum => this.questionNum;
 
@@ -44,16 +47,16 @@ class ThreeQuestionController extends GetxController
 
   @override
   void onInit() {
-    animOneController =
+    animController =
         AnimationController(duration: Duration(seconds: 30), vsync: this);
-    animOne = Tween<double>(begin: 1, end: 0).animate(animOneController)
+    anim = Tween<double>(begin: 1, end: 0).animate(animController)
       ..addListener(() {
         update();
       });
 
-    animOneController.forward().whenComplete(nextQuest);
+    animController.forward().whenComplete(nextQuest);
 
-    pageOneController = PageController();
+    pageController = PageController();
     super.onInit();
   }
 
@@ -65,7 +68,7 @@ class ThreeQuestionController extends GetxController
     if (correctAnswer == selectedAnswer) {
       numOfCorrect++;
     }
-    animOneController.stop();
+    animController.stop();
     update();
 
     Future.delayed(Duration(seconds: 2), () {
@@ -76,19 +79,21 @@ class ThreeQuestionController extends GetxController
   @override
   void onClose() {
     super.onClose();
-    animOneController.dispose();
-    pageOneController.dispose();
+    animController.dispose();
+    pageController.dispose();
   }
 
   void nextQuest() {
-    if (questionNum.value != questions.length) {
+    counter++;
+    print(numOfCorrect);
+    if (counter != 10) {
       isAnswered = false;
-      pageOneController.nextPage(
+      pageController.nextPage(
           duration: Duration(milliseconds: 350), curve: Curves.ease);
-      animOneController.reset();
-      animOneController.forward().whenComplete(nextQuest);
+      animController.reset();
+      animController.forward().whenComplete(nextQuest);
     } else {
-      //Get.to(ScoreScreen());
+      Get.toNamed('/threeScoreScreen');
     }
   }
 }

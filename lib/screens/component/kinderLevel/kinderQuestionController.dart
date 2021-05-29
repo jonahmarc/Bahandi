@@ -36,6 +36,9 @@ class AllQuestionController extends GetxController
   int selectedAnswer;
   int get _selectedAnswer => this.selectedAnswer;
 
+  int counter = 0;
+  int get _counter => this.counter;
+
   RxInt questionNum = 1.obs;
   RxInt get _questionNum => this.questionNum;
 
@@ -81,14 +84,16 @@ class AllQuestionController extends GetxController
   }
 
   void nextQuest() {
-    if (questionNum.value != questions.length) {
+    counter++;
+    print(numOfCorrect);
+    if (counter != 10) {
       isAnswered = false;
       pageController.nextPage(
           duration: Duration(milliseconds: 350), curve: Curves.ease);
       animController.reset();
       animController.forward().whenComplete(nextQuest);
     } else {
-      Get.to(ScoreScreen());
+      Get.toNamed('/kinderScoreScreen');
     }
   }
 }

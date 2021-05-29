@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'kinderQuestionController.dart';
+import 'gradeOneQuestionController.dart';
 
-class KinderScoreScreen extends StatelessWidget {
+class OneScoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    AllQuestionController _qnController = Get.put(AllQuestionController());
+    OneQuestionController _qnController = Get.put(OneQuestionController());
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
