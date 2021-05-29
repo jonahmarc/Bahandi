@@ -3,7 +3,6 @@ import 'kinderQuestionController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:websafe_svg/websafe_svg.dart';
-import 'kinderQuestions.dart';
 import 'kinderQuestionCard.dart';
 
 class KinderQuizBody extends StatelessWidget {
