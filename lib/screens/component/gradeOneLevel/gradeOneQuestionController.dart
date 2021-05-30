@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-import 'oneScoreScreen.dart';
 
 class OneQuestionController extends GetxController
     with SingleGetTickerProviderMixin {
@@ -95,5 +94,25 @@ class OneQuestionController extends GetxController
     } else {
       Get.toNamed('/oneScoreScreen');
     }
+  }
+
+  void reset() {
+    isAnswered = false;
+    counter = 0;
+    numOfCorrect = 0;
+    pageController.dispose();
+    animController.dispose();
+    Get.reset();
+    Get.toNamed('/oneQuiz');
+  }
+
+  void finish() {
+    isAnswered = false;
+    counter = 0;
+    numOfCorrect = 0;
+    pageController.dispose();
+    animController.dispose();
+    Get.reset();
+    Get.toNamed('/quizLevel');
   }
 }

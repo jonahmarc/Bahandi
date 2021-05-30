@@ -37,9 +37,9 @@ const List sample_data = [
   },
   {
     "id": 5,
-    "question": "n. clothes",
-    "image": "assets/cebuano_pictures/sinina.png",
-    "options": ['salup', 'sanggab', 'sapatos', 'sinina'],
+    "question": "n. cigarette",
+    "image": "assets/cebuano_pictures/sigarilyo.png",
+    "options": ['salup', 'sanggab', 'sapatos', 'sigarilyo'],
     "answer_index": 3,
   },
   {
@@ -59,7 +59,7 @@ const List sample_data = [
   {
     "id": 8,
     "question": "n. flood",
-    "image": "assets/cebuano_pictures/baha.gif",
+    "image": "assets/cebuano_pictures/Baha.gif",
     "options": ['baba', 'baka', 'baha', 'bahada'],
     "answer_index": 2,
   },

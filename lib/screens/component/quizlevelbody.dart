@@ -14,109 +14,111 @@ class QuizLevelBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        WebsafeSvg.asset("assets/bg_quizLevel.svg",
+        WebsafeSvg.asset("assets/bg_3.svg",
             fit: BoxFit.fill), // background
         SafeArea(
-          child: Column(
-            // whole screen is considered as column
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // widgets inside the column
-              Padding(
-                padding: EdgeInsets.all(30.0),
-                // new ROW starts
-                child: // first widget >> TEXT
-                    Center(
-                  child: Text(
-                    "LEVEL",
-                    style: TextStyle(
-                      fontSize: 60,
-                      color: Colors.black,
-                      fontFamily: 'League',
-                      fontWeight: FontWeight.w900,
+          child: SingleChildScrollView(
+            child: Column(
+              // whole screen is considered as column
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // widgets inside the column
+                Padding(
+                  padding: EdgeInsets.all(30.0),
+                  // new ROW starts
+                  child: // first widget >> TEXT
+                      Center(
+                    child: Text(
+                      "LEVEL",
+                      style: TextStyle(
+                        fontSize: 60,
+                        color: Colors.black,
+                        fontFamily: 'League',
+                        fontWeight: FontWeight.w900,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              // another ROW starts
-              Container(
-                // second widget >> K(Kindergarten) and G1(Grade 1)
-                child: Row(
-                  // to make the widgets in the same row
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      // put inside container, to apply Inkwell >> K
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => KinderQuiz()));
-                        },
-                        child: Container(
-                          child: Image.asset('assets/1.png'),
+                // another ROW starts
+                Container(
+                  // second widget >> K(Kindergarten) and G1(Grade 1)
+                  child: Row(
+                    // to make the widgets in the same row
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        // put inside container, to apply Inkwell >> K
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => KinderQuiz()));
+                          },
+                          child: Container(
+                            child: Image.asset('assets/1.png'),
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      // put inside container, to apply Inkwell >> G1
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => GradeOneQuiz()));
-                        },
-                        child: Container(
-                          child: Image.asset('assets/2.png'),
+                      Container(
+                        // put inside container, to apply Inkwell >> G1
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => GradeOneQuiz()));
+                          },
+                          child: Container(
+                            child: Image.asset('assets/2.png'),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              // another ROW starts
-              Padding(
-                // put a padding
-                padding:
-                    EdgeInsets.fromLTRB(0, 30, 0, 30), // padding configuration
-                child: Row(
-                  // to make the widgets in the same row
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      // put inside container, to apply Inkwell >> K
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => GradeTwoQuiz()));
-                        },
-                        child: Container(
-                          child: Image.asset('assets/3.png'),
+                // another ROW starts
+                Padding(
+                  // put a padding
+                  padding:
+                      EdgeInsets.fromLTRB(0, 30, 0, 30), // padding configuration
+                  child: Row(
+                    // to make the widgets in the same row
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        // put inside container, to apply Inkwell >> K
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => GradeTwoQuiz()));
+                          },
+                          child: Container(
+                            child: Image.asset('assets/3.png'),
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      // put inside container, to apply Inkwell >> G1
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => GradeThreeQuiz()));
-                        },
-                        child: Container(
-                          child: Image.asset('assets/4.png'),
+                      Container(
+                        // put inside container, to apply Inkwell >> G1
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => GradeThreeQuiz()));
+                          },
+                          child: Container(
+                            child: Image.asset('assets/4.png'),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],
