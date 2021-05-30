@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-import 'kinderScoreScreen.dart';
 
 class AllQuestionController extends GetxController
     with SingleGetTickerProviderMixin {
@@ -35,6 +34,9 @@ class AllQuestionController extends GetxController
 
   int selectedAnswer;
   int get _selectedAnswer => this.selectedAnswer;
+
+  int counter = 0;
+  int get _counter => this.counter;
 
   RxInt questionNum = 1.obs;
   RxInt get _questionNum => this.questionNum;
@@ -81,14 +83,39 @@ class AllQuestionController extends GetxController
   }
 
   void nextQuest() {
-    if (questionNum.value != questions.length) {
+    counter++;
+    print(numOfCorrect);
+    if (counter != 10) {
       isAnswered = false;
       pageController.nextPage(
           duration: Duration(milliseconds: 350), curve: Curves.ease);
       animController.reset();
       animController.forward().whenComplete(nextQuest);
     } else {
-      Get.to(ScoreScreen());
+      // questionNum.value = 0;
+      // counter = 0;
+      // numOfCorrect = 0;
+      Get.toNamed('/kinderScoreScreen');
     }
+  }
+
+  void reset() {
+    isAnswered = false;
+    counter = 0;
+    numOfCorrect = 0;
+    pageController.dispose();
+    animController.dispose();
+    Get.reset();
+    Get.toNamed('/kinderQuiz');
+  }
+
+  void finish() {
+    isAnswered = false;
+    counter = 0;
+    numOfCorrect = 0;
+    pageController.dispose();
+    animController.dispose();
+    Get.reset();
+    Get.toNamed('/quizLevel');
   }
 }

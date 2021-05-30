@@ -1,72 +1,59 @@
+import 'package:e_commerce/screens/component/kinderLevel/kinderQuiz.dart';
+import 'package:e_commerce/screens/quizLevelView.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'griddashboard.dart';
+//import 'package:sizer/sizer.dart';
+//import 'package:e_commerce/screens/component/kinderLevel/kinderScoreScreen.dart';
+import 'screens/component/gradeOneLevel/gradeOneQuiz.dart';
+import 'screens/component/gradeOneLevel/oneScoreScreen.dart';
+import 'package:e_commerce/screens/component/gradeTwoLevel/twoScoreScreen.dart';
+import 'screens/component/gradeThreeLevel/gradeThreeQuiz.dart';
+import 'screens/component/gradeThreeLevel/threeScoreScreen.dart';
+import 'package:get/get.dart';
+import 'home.dart';
+import 'screens/component/gradeTwoLevel/gradeTwoQuiz.dart';
+import 'screens/component/kinderLevel/kinderScoreScreen.dart';
 
 void main() {
-  runApp(MaterialApp(home: Home()));
+  runApp(Bahandi());
 }
 
-class Home extends StatefulWidget {
+/*class Home extends StatefulWidget {
   @override
   HomeState createState() => new HomeState();
-}
+}*/
 
-class HomeState extends State<Home> {
+class Bahandi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xffFFFFFF),
-      body: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 60,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 16, right: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "Bahandi",
-                      style: GoogleFonts.montserrat(
-                          textStyle: TextStyle(
-                              color: Color(0xff000000),
-                              fontSize: 36,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      "Learn Bich",
-                      style: GoogleFonts.montserrat(
-                          textStyle: TextStyle(
-                              color: Color(0xff000000),
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                  ],
-                ),
-                IconButton(
-                  alignment: Alignment.topCenter,
-                  icon: Image.asset(
-                    "assets/shopping_bag.png",
-                    width: 24,
-                  ),
-                  onPressed: () {}, //para sa shopping bag
-                )
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          GridDashBoard()
-        ],
-      ),
-    ); //Scaffold
+    return GetMaterialApp(
+      title: 'Bahandi',
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MyHomePage(),
+        '/kinderScoreScreen': (context) => KinderScoreScreen(),
+        '/oneScoreScreen': (context) => OneScoreScreen(),
+        '/twoScoreScreen': (context) => TwoScoreScreen(),
+        '/threeScoreScreen': (context) => ThreeScoreScreen(),
+        '/kinderQuiz': (context) => KinderQuiz(),
+        '/oneQuiz': (context) => GradeOneQuiz(),
+        '/twoQuiz': (context) => GradeTwoQuiz(),
+        '/threeQuiz': (context) => GradeThreeQuiz(),
+        '/quizLevel': (context) => QuizLevelView(),
+      },
+    );
   }
 }
+
+//return GetMaterialApp(
+//   title: 'Bahandi',
+//   debugShowCheckedModeBanner: false,
+//   initialRoute: '/',
+//   routes: {
+//     '/': (context) => MyHomePage(),
+//     '/kinderScoreScreen': (context) => KinderScoreScreen(),
+//     '/oneScoreScreen': (context) => OneScoreScreen(),
+//     '/twoScoreScreen': (context) => TwoScoreScreen(),
+//     '/threeScoreScreen': (context) => ThreeScoreScreen(),
+//   },
+// );

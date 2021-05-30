@@ -17,7 +17,7 @@ class GradeThreeQuizBody extends StatelessWidget {
         Get.put(ThreeQuestionController());
     return Stack(
       children: [
-        WebsafeSvg.asset("assets/bg_quizLevel.svg",
+        WebsafeSvg.asset("assets/bg_3.svg",
             fit: BoxFit.fill), // background
         SafeArea(
           child: Column(

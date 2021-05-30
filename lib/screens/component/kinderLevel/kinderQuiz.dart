@@ -7,6 +7,7 @@ class KinderQuiz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AllQuestionController _controller = Get.put(AllQuestionController());
+    //_controller.resetQuestionNumber();
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(

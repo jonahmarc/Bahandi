@@ -91,4 +91,24 @@ class TwoQuestionController extends GetxController
       //Get.to(ScoreScreen());
     }
   }
+
+  void reset() {
+    isAnswered = false;
+    counter = 0;
+    numOfCorrect = 0;
+    pageController.dispose();
+    animController.dispose();
+    Get.reset();
+    Get.toNamed('/twoQuiz');
+  }
+
+  void finish() {
+    isAnswered = false;
+    counter = 0;
+    numOfCorrect = 0;
+    pageController.dispose();
+    animController.dispose();
+    Get.reset();
+    Get.toNamed('/quizLevel');
+  }
 }
