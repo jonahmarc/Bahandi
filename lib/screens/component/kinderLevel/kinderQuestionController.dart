@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-import 'kinderScoreScreen.dart';
 
 class AllQuestionController extends GetxController
     with SingleGetTickerProviderMixin {
@@ -93,7 +92,30 @@ class AllQuestionController extends GetxController
       animController.reset();
       animController.forward().whenComplete(nextQuest);
     } else {
+      // questionNum.value = 0;
+      // counter = 0;
+      // numOfCorrect = 0;
       Get.toNamed('/kinderScoreScreen');
     }
+  }
+
+  void reset() {
+    isAnswered = false;
+    counter = 0;
+    numOfCorrect = 0;
+    pageController.dispose();
+    animController.dispose();
+    Get.reset();
+    Get.toNamed('/kinderQuiz');
+  }
+
+  void finish() {
+    isAnswered = false;
+    counter = 0;
+    numOfCorrect = 0;
+    pageController.dispose();
+    animController.dispose();
+    Get.reset();
+    Get.toNamed('/quizLevel');
   }
 }
